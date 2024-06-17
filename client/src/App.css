@@ -3,6 +3,26 @@ body {
   margin: 0;
 }
 
+input {
+  border: none;
+  background-color: transparent;
+  color: white;
+  outline: none;
+}
+
+button {
+  background-color: pink;
+  color: #16141c;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+button:hover {
+  color: pink;
+  background-color: #16141c;
+}
+
 .App {
   display: flex;
   align-items: center;
@@ -17,44 +37,3 @@ body {
   color: pink;
 }
 
-.initial-page {
-  width: 600px;
-  height: 350px;
-  border: 1px solid pink;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.initial-page input{
-  margin: 10px;
-  width: 200px;
-  height: 40px;
-  background-color: transparent;
-  border: none;
-  padding-left: 10px;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  border-bottom: 1px solid pink;
-}
-
-.initial-page button{
-  border-radius: 30px;
-  width: 400px;
-  height: 50px;
-  border: none;
-  background-color: pink;
-  color: #16141c;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 45px;
-  cursor: pointer;
-}
-
-.initial-page button:hover{
-  color: pink;
-  background-color: #16141c;
-}

@@ -1,0 +1,30 @@
+.initial-page {
+    width: 600px;
+    height: 350px;
+    border: 1px solid pink;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.initial-page input {
+    margin: 10px;
+    width: 200px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    outline: none;
+    border-bottom: 1px solid pink;
+}
+
+.initial-page button {
+    border-radius: 30px;
+    width: 400px;
+    height: 50px;
+    border: none;
+    font-size: 16px;
+    margin-top: 45px;
+}
+
