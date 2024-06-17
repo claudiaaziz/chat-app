@@ -21,6 +21,12 @@ function App() {
         socket = io(CONNECTION_PORT);
     }, [CONNECTION_PORT]);
 
+    useEffect(() => {
+        socket.on('receive_message', (data) => {
+            setMessageList((prev) => [...prev, data]);
+        });
+    }, []);
+
     const connectToRoom = () => {
         setIsConnected(true);
         socket.emit('join_room', room);
@@ -42,13 +48,17 @@ function App() {
 
     return (
         <div className='App'>
-            <h1>{name ? name : 'Chat App'}</h1>
             {isConnected ? (
-                <Chatroom
-                    setMessage={setMessage}
-                    sendMessage={sendMessage}
-                    messageList={messageList}
-                />
+                <>
+                    <h1>{room}</h1>
+                    <Chatroom
+                        setMessage={setMessage}
+                        sendMessage={sendMessage}
+                        messageList={messageList}
+                        message={message}
+                        name={name}
+                    />
+                </>
             ) : (
                 <InitialPage
                     setName={setName}

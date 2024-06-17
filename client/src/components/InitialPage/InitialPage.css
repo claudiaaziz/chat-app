@@ -28,3 +28,7 @@
     margin-top: 45px;
 }
 
+.initial-page button:hover {
+    color: pink;
+    background-color: #16141c;
+}

@@ -1,13 +1,19 @@
 import './Chatroom.css';
 
-const Chatroom = ({ setMessage, sendMessage, messageList }) => {
+const Chatroom = ({ setMessage, sendMessage, messageList, message, name }) => {
     return (
         <div className='chatroom'>
             <div className='messages'>
-                {messageList.map((content, idx) => ( // temp
+                {messageList.map((content, idx) => (
                     <h1 key={idx}>
-                        {idx}
-                        {content.author} {content.message}
+                        <div className='message-div'>
+                            <div
+                                className='individual-message'
+                                id={content.author !== name ? 'other-user' : ''}
+                            >
+                                {content.author}: {content.message}
+                            </div>
+                        </div>
                     </h1>
                 ))}
             </div>
@@ -15,6 +21,7 @@ const Chatroom = ({ setMessage, sendMessage, messageList }) => {
                 <input
                     type='text'
                     placeholder='Message'
+                    value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <button onClick={sendMessage}>Send</button>
