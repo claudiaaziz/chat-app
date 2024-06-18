@@ -1,13 +1,13 @@
 import './InitialPage.css'
 
-const InitialPage = ({ setName, setRoom, connectToRoom }) => {
+const InitialPage = ({ setUsername, setRoom, connectToRoom }) => {
     return (
         <div className='initial-page'>
             <div className='inputs'>
                 <input
                     type='text'
-                    placeholder='Name'
-                    onChange={(e) => setName(e.target.value)}
+                    placeholder='Username'
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                     type='text'

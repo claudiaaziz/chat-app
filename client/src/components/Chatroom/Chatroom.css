@@ -60,8 +60,3 @@
     flex: 20%;
     height: 100%;
 }
-
-
-.chatroom .message-input button:hover {
-    background-color: rgb(227, 176, 184);
-}

@@ -11,57 +11,24 @@ function App() {
     // Before user connects
     const [isConnected, setIsConnected] = useState(false);
     const [room, setRoom] = useState('');
-    const [name, setName] = useState('');
-
-    // After user connects
-    const [message, setMessage] = useState('');
-    const [messageList, setMessageList] = useState([]);
+    const [username, setUsername] = useState('');
 
     useEffect(() => {
         socket = io(CONNECTION_PORT);
     }, [CONNECTION_PORT]);
-
-    useEffect(() => {
-        socket.on('receive_message', (data) => {
-            setMessageList((prev) => [...prev, data]);
-        });
-    }, []);
 
     const connectToRoom = () => {
         setIsConnected(true);
         socket.emit('join_room', room);
     };
 
-    const sendMessage = () => {
-        const messageContent = {
-            room,
-            content: {
-                author: name,
-                message,
-            },
-        };
-
-        socket.emit('send_message', messageContent);
-        setMessageList((prev) => [...prev, messageContent.content]);
-        setMessage('');
-    };
-
     return (
         <div className='App'>
             {isConnected ? (
-                <>
-                    <h1>{room}</h1>
-                    <Chatroom
-                        setMessage={setMessage}
-                        sendMessage={sendMessage}
-                        messageList={messageList}
-                        message={message}
-                        name={name}
-                    />
-                </>
+                <Chatroom username={username} socket={socket} room={room} />
             ) : (
                 <InitialPage
-                    setName={setName}
+                    setUsername={setUsername}
                     setRoom={setRoom}
                     connectToRoom={connectToRoom}
                 />
